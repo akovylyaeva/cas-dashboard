@@ -1,9 +1,10 @@
 import { Outlet } from "react-router-dom"
+import { Sidebar } from "../components/sidebar/Sidebar"
 
 export function Layout() {
   return (
     <div>
-      <header>Header</header>
+      <Sidebar />
 
       <main>
         <Outlet />
