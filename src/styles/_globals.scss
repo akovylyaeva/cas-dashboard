@@ -1,0 +1,77 @@
+@use "media" as *;
+@use "./variables" as v;
+@use "./fonts-mixin" as f;
+
+:root {
+  background-color: v.$color-background;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  @include f.text;
+
+  margin: 0;
+  padding: 0;
+  color: v.$color-text-primary;
+}
+
+ul,
+ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+input,
+textarea {
+  @include f.text;
+
+  border: 1px solid v.$color-border;
+  border-radius: 8px;
+  padding: 8px 12px;
+  width: 100%;
+  transition: border-color 0.2s ease-in-out;
+
+  &::placeholder {
+    color: v.$color-text-secondary;
+  }
+
+//   &:focus {
+//     outline: none;
+//     border-color: v.$color-component-border-active;
+//   }
+
+//   &:hover {
+//     border-color: v.$color-component-border-hover;
+//   }
+}
+
+button {
+  border: none;
+  color: v.$color-text-primary;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+

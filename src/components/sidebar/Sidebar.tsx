@@ -1,8 +1,10 @@
+import './Sidebar.scss'
+
 import { NavLink } from "react-router-dom"
 
 export function Sidebar() {
   return (
-    <nav>
+    <nav className='sidebar'>
       <ul>
         <li>
           <NavLink to="/">Dashboard</NavLink>

@@ -1,0 +1,34 @@
+@mixin text {
+  font-family: Inter, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+@mixin text-semibold {
+  font-family: Inter, sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+@mixin caption {
+  font-family: Inter, sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+@mixin h5 {
+  font-family: Inter, sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 20px;
+}
+
+@mixin h6 {
+  font-family: Inter, sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+}

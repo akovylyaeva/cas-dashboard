@@ -1,6 +1,8 @@
+import './Header.scss'
+
 export function Header() {
   return (
-    <header>
+    <header className='header'>
       <h1>Cas Dashboard</h1>
     </header>
   )
