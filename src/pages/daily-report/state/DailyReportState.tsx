@@ -39,11 +39,88 @@ export class DailyReportState {
     this._report.date = date
   }
 
+
+  setCycleDay({
+    cycleDay,
+  }: {
+    cycleDay: string,
+  }) {
+    this._report.cycleDay = this.parseNumber(cycleDay)
+  }
+
   setWeight({
     weight,
   }: {
     weight: string,
   }) {
-    this._report.weight = weight === `` ? null : Number(weight)
+    this._report.weight = this.parseNumber(weight)
+  }
+
+  setCalories({
+    calories,
+  }: {
+    calories: string,
+  }) {
+    this._report.calories = this.parseNumber(calories)
+  }
+
+  setProtein({
+    protein,
+  }: {
+    protein: string,
+  }) {
+    this._report.protein = this.parseNumber(protein)
+  }
+
+  setFat({
+    fat,
+  }: {
+    fat: string,
+  }) {
+    this._report.fat = this.parseNumber(fat)
+  }
+
+  setCarbs({
+    carbs,
+  }: {
+    carbs: string,
+  }) {
+    this._report.carbs = this.parseNumber(carbs)
+  }
+
+  setSteps({
+    steps,
+  }: {
+    steps: string,
+  }) {
+    this._report.steps = this.parseNumber(steps)
+  }
+
+  setSleepStart({
+    sleepStart,
+  }: {
+    sleepStart: string,
+  }) {
+    this._report.sleepStart = sleepStart === `` ? null : sleepStart
+  }
+
+  setSleepEnd({
+    sleepEnd,
+  }: {
+    sleepEnd: string,
+  }) {
+    this._report.sleepEnd = sleepEnd === `` ? null : sleepEnd
+  }
+
+  setComment({
+    comment,
+  }: {
+    comment: string,
+  }) {
+    this._report.comment = comment
+  }
+
+  private parseNumber(value: string) {
+    return value === "" ? null : Number(value)
   }
 }
