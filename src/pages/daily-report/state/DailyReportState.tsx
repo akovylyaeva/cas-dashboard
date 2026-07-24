@@ -27,8 +27,20 @@ export class DailyReportState {
     this._report.date = new Date().toISOString().split("T")[0]
   }
 
+  initializeReport({
+    loadedReport,
+  }: {
+    loadedReport: DailyReport,
+  }) {
+    this._report = loadedReport
+  }
+
   get report() {
     return this._report
+  }
+
+  get date() {
+    return this._report.date
   }
 
   setDate({

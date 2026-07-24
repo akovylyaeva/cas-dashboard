@@ -1,7 +1,7 @@
 import { useMemo } from "react"
-import { DailyReportContent } from "./DailyReportContent"
 import { DailyReportState } from "./state/DailyReportState"
 import { DailyReportStateContext } from './state/DailyReportStateContext'
+import { DailyReportContainer } from "./DailyReportContainer"
 
 export function DailyReportPage() {
   const dailyReportState = useMemo(
@@ -11,7 +11,7 @@ export function DailyReportPage() {
 
   return (
     <DailyReportStateContext.Provider value={dailyReportState}>
-      <DailyReportContent />
+      <DailyReportContainer />
     </DailyReportStateContext.Provider>
   )
 }
