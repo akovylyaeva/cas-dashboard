@@ -1,7 +1,7 @@
 import { makeAutoObservable } from 'mobx'
-import type { DailyReport } from '../../../types'
+import type { DailyReportType } from '../../../types'
 
-const EMPTY_REPORT: DailyReport = {
+const EMPTY_REPORT: DailyReportType = {
   id: ``,
   date: ``,
   cycleDay: null,
@@ -17,7 +17,7 @@ const EMPTY_REPORT: DailyReport = {
 }
 
 export class DailyReportState {
-  private _report: DailyReport = {
+  private _report: DailyReportType = {
     ...EMPTY_REPORT, 
   }
 
@@ -30,7 +30,7 @@ export class DailyReportState {
   initializeReport({
     loadedReport,
   }: {
-    loadedReport: DailyReport,
+    loadedReport: DailyReportType,
   }) {
     this._report = loadedReport
   }

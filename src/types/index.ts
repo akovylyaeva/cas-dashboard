@@ -1,4 +1,4 @@
-export type DailyReport = {
+export type DailyReportType = {
   id: string,
   date: string,
   

@@ -1,5 +1,5 @@
 import { supabase } from '../../../common/api/supabase'
-import type { DailyReport } from '../../../types'
+import type { DailyReportType } from '../../../types'
 
 export class DailyReportsRepository {
 
@@ -21,7 +21,7 @@ export class DailyReportsRepository {
       throw error
     }
 
-    return data as DailyReport | null
+    return data as DailyReportType | null
   }
 }
 
