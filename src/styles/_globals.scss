@@ -1,6 +1,6 @@
-@use "media" as *;
-@use "./variables" as v;
-@use "./fonts-mixin" as f;
+@use 'media' as *;
+@use './variables' as v;
+@use './fonts-mixin' as f;
 
 :root {
   background-color: v.$color-background;

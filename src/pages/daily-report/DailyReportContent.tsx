@@ -1,7 +1,7 @@
 import './DailyReportContent.scss'
 
-import { observer } from "mobx-react-lite"
-import { useContext } from "react"
+import { observer } from 'mobx-react-lite'
+import { useContext } from 'react'
 import { DailyReportStateContext } from './state/DailyReportStateContext'
 
 export const DailyReportContent = observer(() => {
@@ -29,13 +29,13 @@ export const DailyReportContent = observer(() => {
     <>
         <h1>Daily Report</h1>
 
-        <label htmlFor="date">
+        <label htmlFor='date'>
             Date
         </label>
 
         <input
-            id="date"
-            type="date"
+            id='date'
+            type='date'
             value={date}
             onChange={(event) =>
               dailyReportState.setDate({
@@ -44,13 +44,13 @@ export const DailyReportContent = observer(() => {
             }
         />
 
-        <label htmlFor="cycleDay">
+        <label htmlFor='cycleDay'>
           Cycle Day
         </label>
 
         <input
-          id="cycleDay"
-          type="number"
+          id='cycleDay'
+          type='number'
           value={cycleDay ?? ``}
           onChange={(event) =>
             dailyReportState.setCycleDay({
@@ -59,13 +59,13 @@ export const DailyReportContent = observer(() => {
           }
         />
 
-        <label htmlFor="weight">
+        <label htmlFor='weight'>
           Weight
         </label>
 
         <input
-          id="weight"
-          type="number"
+          id='weight'
+          type='number'
           value={weight ?? ``}
           onChange={(event) =>
             dailyReportState.setWeight({
@@ -75,13 +75,13 @@ export const DailyReportContent = observer(() => {
         />
 
         <div>
-          <label htmlFor="calories">
+          <label htmlFor='calories'>
             Calories
           </label>
 
           <input
-            id="calories"
-            type="number"
+            id='calories'
+            type='number'
             value={calories ?? ``}
             onChange={(event) =>
               dailyReportState.setCalories({
@@ -90,13 +90,13 @@ export const DailyReportContent = observer(() => {
             }
           />
 
-          <label htmlFor="protein">
+          <label htmlFor='protein'>
             Protein
           </label>
 
           <input
-            id="protein"
-            type="number"
+            id='protein'
+            type='number'
             value={protein ?? ``}
             onChange={(event) =>
               dailyReportState.setProtein({
@@ -105,13 +105,13 @@ export const DailyReportContent = observer(() => {
             }
           />
 
-          <label htmlFor="fat">
+          <label htmlFor='fat'>
             Fat
           </label>
 
           <input
-            id="fat"
-            type="number"
+            id='fat'
+            type='number'
             value={fat ?? ``}
             onChange={(event) =>
               dailyReportState.setFat({
@@ -120,13 +120,13 @@ export const DailyReportContent = observer(() => {
             }
           />
 
-          <label htmlFor="carbs">
+          <label htmlFor='carbs'>
             Carbs
           </label>
 
           <input
-            id="carbs"
-            type="number"
+            id='carbs'
+            type='number'
             value={carbs ?? ``}
             onChange={(event) =>
               dailyReportState.setCarbs({
@@ -136,13 +136,13 @@ export const DailyReportContent = observer(() => {
           />
         </div>
 
-        <label htmlFor="steps">
+        <label htmlFor='steps'>
           Steps
         </label>
 
         <input
-          id="steps"
-          type="number"
+          id='steps'
+          type='number'
           value={steps ?? ``}
           onChange={(event) =>
             dailyReportState.setSteps({
@@ -152,13 +152,13 @@ export const DailyReportContent = observer(() => {
         />
 
       <div>
-        <label htmlFor="sleepStart">
+        <label htmlFor='sleepStart'>
           Sleep Start
         </label>
 
         <input
-          id="sleepStart"
-          type="time"
+          id='sleepStart'
+          type='time'
           value={sleepStart ?? ``}
           onChange={(event) =>
             dailyReportState.setSleepStart({
@@ -167,13 +167,13 @@ export const DailyReportContent = observer(() => {
           }
         />
 
-        <label htmlFor="sleepEnd">
+        <label htmlFor='sleepEnd'>
           Sleep End
         </label>
 
         <input
-          id="sleepEnd"
-          type="time"
+          id='sleepEnd'
+          type='time'
           value={sleepEnd ?? ``}
           onChange={(event) =>
             dailyReportState.setSleepEnd({
@@ -184,13 +184,13 @@ export const DailyReportContent = observer(() => {
       </div>
 
 
-      <label htmlFor="comment">
+      <label htmlFor='comment'>
         Comment
       </label>
 
       <input
-        id="comment"
-        type="string"
+        id='comment'
+        type='string'
         value={comment}
         onChange={(event) =>
           dailyReportState.setComment({

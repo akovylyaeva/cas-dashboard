@@ -5,15 +5,15 @@ export interface NavigationItem {
 
 export const navigation: NavigationItem[] = [
   {
-    title: "Dashboard",
-    path: "/",
+    title: 'Dashboard',
+    path: '/',
   },
   {
-    title: "Weight",
-    path: "/weight",
+    title: 'Weight',
+    path: '/weight',
   },
   {
-    title: "Sleep",
-    path: "/sleep",
+    title: 'Sleep',
+    path: '/sleep',
   },
 ]

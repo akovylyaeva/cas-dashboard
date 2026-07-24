@@ -1,7 +1,7 @@
 import './Sidebar.scss'
 
-import { NavLink } from "react-router-dom"
-import { navigation } from "../../config/navigation"
+import { NavLink } from 'react-router-dom'
+import { navigation } from '../../config/navigation'
 
 export function Sidebar() {
   return (

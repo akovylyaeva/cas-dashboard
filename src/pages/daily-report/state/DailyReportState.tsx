@@ -1,5 +1,5 @@
-import { makeAutoObservable } from "mobx"
-import type { DailyReport } from "../../../types"
+import { makeAutoObservable } from 'mobx'
+import type { DailyReport } from '../../../types'
 
 const EMPTY_REPORT: DailyReport = {
   id: ``,
@@ -24,7 +24,7 @@ export class DailyReportState {
   constructor() {
     makeAutoObservable(this)
 
-    this._report.date = new Date().toISOString().split("T")[0]
+    this._report.date = new Date().toISOString().split('T')[0]
   }
 
   initializeReport({
@@ -133,6 +133,6 @@ export class DailyReportState {
   }
 
   private parseNumber(value: string) {
-    return value === "" ? null : Number(value)
+    return value === '' ? null : Number(value)
   }
 }
