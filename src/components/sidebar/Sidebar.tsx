@@ -5,16 +5,24 @@ import { navigation } from '../../config/navigation'
 
 export function Sidebar() {
   return (
-    <nav className='sidebar'>
-      <ul>
+    <div className='sidebar'>
+      <h3>Cas Dashboard</h3>
+
+      <ul className='sidebar__navigation'>
         {navigation.map(({ path, title }) => (
-          <li key={path}>
-            <NavLink to={path}>
+          <li
+            key={path}
+            className='sidebar__navigation-item'
+          >
+            <NavLink
+              to={path}
+              className='sidebar__navigation-link'
+            >
               {title}
             </NavLink>
           </li>
         ))}
       </ul>
-    </nav>
+    </div>
   )
 }
