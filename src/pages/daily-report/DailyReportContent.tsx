@@ -4,7 +4,11 @@ import { observer } from 'mobx-react-lite'
 import { useContext } from 'react'
 import { DailyReportStateContext } from './state/DailyReportStateContext'
 
-export const DailyReportContent = observer(() => {
+export const DailyReportContent = observer(({
+  onSubmit,
+} : {
+  onSubmit: () => unknown,
+}) => {
   const dailyReportState = useContext(DailyReportStateContext)
 
   const {
@@ -20,10 +24,6 @@ export const DailyReportContent = observer(() => {
     sleepEnd,
     comment,
   } = dailyReportState.report
-
-  const handleSave = () => {
-    console.log('saved!')
-  }
 
   return (
     <>
@@ -199,8 +199,12 @@ export const DailyReportContent = observer(() => {
         }
       />
 
-      <button onClick={handleSave}>
-        Save
+      <button onClick={onSubmit}>
+        {
+          dailyReportState.isSaved
+            ? "Saved"
+            : "Save"
+        }
       </button>
     </>
   )

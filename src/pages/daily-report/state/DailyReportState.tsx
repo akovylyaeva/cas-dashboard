@@ -21,6 +21,8 @@ export class DailyReportState {
     ...EMPTY_REPORT, 
   }
 
+  private _isSaved = false
+
   constructor() {
     makeAutoObservable(this)
 
@@ -43,12 +45,17 @@ export class DailyReportState {
     return this._report.date
   }
 
+  get isSaved() {
+    return this._isSaved
+  }
+
   setDate({
     date,
   }: {
     date: string,
   }) {
     this._report.date = date
+    this.setUnsaved()
   }
 
 
@@ -58,6 +65,7 @@ export class DailyReportState {
     cycleDay: string,
   }) {
     this._report.cycleDay = this.parseNumber(cycleDay)
+    this.setUnsaved()
   }
 
   setWeight({
@@ -66,6 +74,7 @@ export class DailyReportState {
     weight: string,
   }) {
     this._report.weight = this.parseNumber(weight)
+    this.setUnsaved()
   }
 
   setCalories({
@@ -74,6 +83,7 @@ export class DailyReportState {
     calories: string,
   }) {
     this._report.calories = this.parseNumber(calories)
+    this.setUnsaved()
   }
 
   setProtein({
@@ -82,6 +92,7 @@ export class DailyReportState {
     protein: string,
   }) {
     this._report.protein = this.parseNumber(protein)
+    this.setUnsaved()
   }
 
   setFat({
@@ -90,6 +101,7 @@ export class DailyReportState {
     fat: string,
   }) {
     this._report.fat = this.parseNumber(fat)
+    this.setUnsaved()
   }
 
   setCarbs({
@@ -98,6 +110,7 @@ export class DailyReportState {
     carbs: string,
   }) {
     this._report.carbs = this.parseNumber(carbs)
+    this.setUnsaved()
   }
 
   setSteps({
@@ -106,6 +119,7 @@ export class DailyReportState {
     steps: string,
   }) {
     this._report.steps = this.parseNumber(steps)
+    this.setUnsaved()
   }
 
   setSleepStart({
@@ -114,6 +128,7 @@ export class DailyReportState {
     sleepStart: string,
   }) {
     this._report.sleepStart = sleepStart === `` ? null : sleepStart
+    this.setUnsaved()
   }
 
   setSleepEnd({
@@ -122,6 +137,7 @@ export class DailyReportState {
     sleepEnd: string,
   }) {
     this._report.sleepEnd = sleepEnd === `` ? null : sleepEnd
+    this.setUnsaved()
   }
 
   setComment({
@@ -130,6 +146,22 @@ export class DailyReportState {
     comment: string,
   }) {
     this._report.comment = comment
+    this.setUnsaved()
+  }
+
+  resetReport() {
+    this._report = {
+      ...EMPTY_REPORT,
+      date: this._report.date,
+    }
+  }
+
+  setSaved() {
+    this._isSaved = true
+  }
+
+  setUnsaved() {
+    this._isSaved = false
   }
 
   private parseNumber(value: string) {
