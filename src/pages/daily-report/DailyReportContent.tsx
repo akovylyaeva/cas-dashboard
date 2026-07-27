@@ -3,6 +3,7 @@ import './DailyReportContent.scss'
 import { observer } from 'mobx-react-lite'
 import { useContext } from 'react'
 import { DailyReportStateContext } from './state/DailyReportStateContext'
+import { CustomInput } from './components/custom-input/CustomInput'
 
 export const DailyReportContent = observer(({
   onSubmit,
@@ -26,109 +27,83 @@ export const DailyReportContent = observer(({
   } = dailyReportState.report
 
   return (
-    <>
-        <h1>Daily Report</h1>
+    <div className='daily-report'>
+        {/* <h1>Daily Report</h1> */}
+        <div>Good morning, sunshine!</div>
+        <div>Today is a brand new day, full of endless possibilities. I am incredibly proud of myself. No matter what comes my way today, I can handle it. Today, I will do my best. This is my day, and I choose to shine!</div>
 
-        <label htmlFor='date'>
-            Date
-        </label>
-
-        <input
-            id='date'
-            type='date'
-            value={date}
-            onChange={(event) =>
-              dailyReportState.setDate({
-                date: event.target.value,
-              })
-            }
-        />
-
-        <label htmlFor='cycleDay'>
-          Cycle Day
-        </label>
-
-        <input
-          id='cycleDay'
-          type='number'
-          value={cycleDay ?? ``}
-          onChange={(event) =>
-            dailyReportState.setCycleDay({
-              cycleDay: event.target.value,
+        <CustomInput
+          label='Date'
+          type='date'
+          value={date}
+          onChange={(event: any) =>
+            dailyReportState.setDate({
+              date: event.target.value,
             })
           }
         />
 
-        <label htmlFor='weight'>
-          Weight
-        </label>
-
-        <input
-          id='weight'
+        <CustomInput
+          label='Weight'
           type='number'
           value={weight ?? ``}
-          onChange={(event) =>
+          onChange={(event: any) =>
             dailyReportState.setWeight({
               weight: event.target.value,
             })
           }
         />
 
-        <div>
-          <label htmlFor='calories'>
-            Calories
-          </label>
+        <CustomInput
+          label='Cycle Day'
+          type='number'
+          value={cycleDay ?? ``}
+          onChange={(event: any) =>
+            dailyReportState.setCycleDay({
+              cycleDay: event.target.value,
+            })
+          }
+        />
 
-          <input
-            id='calories'
+        <div className='daily-report__macros'>
+          <CustomInput
+            label='Calories'
             type='number'
             value={calories ?? ``}
-            onChange={(event) =>
+            onChange={(event: any) =>
               dailyReportState.setCalories({
                 calories: event.target.value,
               })
             }
           />
 
-          <label htmlFor='protein'>
-            Protein
-          </label>
-
-          <input
-            id='protein'
+          <CustomInput
+            label='Protein'
             type='number'
             value={protein ?? ``}
-            onChange={(event) =>
+            onChange={(event: any) =>
               dailyReportState.setProtein({
                 protein: event.target.value,
               })
             }
           />
 
-          <label htmlFor='fat'>
-            Fat
-          </label>
-
-          <input
-            id='fat'
+          <CustomInput
+            label='Fat'
             type='number'
             value={fat ?? ``}
-            onChange={(event) =>
+            onChange={(event: any) =>
               dailyReportState.setFat({
                 fat: event.target.value,
               })
             }
           />
 
-          <label htmlFor='carbs'>
-            Carbs
-          </label>
-
-          <input
-            id='carbs'
+          <CustomInput
+            label='Carbs'
             type='number'
             value={carbs ?? ``}
-            onChange={(event) =>
+            onChange={(event: any) =>
               dailyReportState.setCarbs({
                 carbs: event.target.value,
               })
@@ -136,46 +111,34 @@ export const DailyReportContent = observer(({
           />
         </div>
 
-        <label htmlFor='steps'>
-          Steps
-        </label>
-
-        <input
-          id='steps'
+        <CustomInput
+          label='Steps'
           type='number'
           value={steps ?? ``}
-          onChange={(event) =>
+          onChange={(event: any) =>
             dailyReportState.setSteps({
               steps: event.target.value,
             })
           }
         />
 
-      <div>
-        <label htmlFor='sleepStart'>
-          Sleep Start
-        </label>
-
-        <input
-          id='sleepStart'
+      <div className='daily-report__sleep-time'>
+        <CustomInput
+          label='Sleep Start'
           type='time'
           value={sleepStart ?? ``}
-          onChange={(event) =>
+          onChange={(event: any) =>
             dailyReportState.setSleepStart({
               sleepStart: event.target.value,
             })
           }
         />
 
-        <label htmlFor='sleepEnd'>
-          Sleep End
-        </label>
-
-        <input
-          id='sleepEnd'
+        <CustomInput
+          label='Sleep End'
           type='time'
           value={sleepEnd ?? ``}
-          onChange={(event) =>
+          onChange={(event: any) =>
             dailyReportState.setSleepEnd({
               sleepEnd: event.target.value,
             })
@@ -199,13 +162,16 @@ export const DailyReportContent = observer(({
         }
       />
 
-      <button onClick={onSubmit}>
+      <button
+        className='daily-report__button'
+        onClick={onSubmit}
+      >
         {
           dailyReportState.isSaved
             ? "Saved"
             : "Save"
         }
       </button>
-    </>
+    </div>
   )
 })
