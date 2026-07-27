@@ -1,29 +1,29 @@
 .daily-report {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  &__macros {
     display: flex;
-    flex-direction: column;
-    gap: 16px;
+    gap: 8px;
+  }
 
-    &__macros {
-        display: flex;
-        gap: 8px;
+  &__sleep-time {
+    display: flex;
+    gap: 8px;
+  }
+
+  &__button {
+    border-radius: 16px;
+    padding: 16px 24px;
+    width: 300px;
+    height: auto;
+    background-color: lightblue;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background-color: rgb(48 107 203);
     }
-
-    &__sleep-time {
-        display: flex;
-        gap: 8px;
-    }
-
-    &__button {
-        background-color: lightblue;
-        border-radius: 16px;
-        padding: 16px 24px;
-        height: auto;
-        width: 300px;
-        cursor: pointer;
-        transition: background-color 0.2s ease;
-
-        &:hover {
-            background-color: rgb(48, 107, 203);
-        }
-    }
+  }
 }

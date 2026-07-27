@@ -18,5 +18,41 @@ export default defineConfig([
     languageOptions: {
       globals: globals.browser,
     },
+    rules: {
+      quotes: ['error', 'single'],
+      'eol-last': ['error', 'always'],
+      semi: ['error', 'never'],
+      'no-trailing-spaces': 'error',
+      'no-console': 'error',
+      'linebreak-style': ['error', 'unix'],
+      '@typescript-eslint/no-explicit-any': 'off',
+      'no-multiple-empty-lines': [
+        'error',
+        {
+          max: 1,
+          maxEOF: 1,
+        },
+      ],
+      "array-element-newline": [
+        "error",
+        "always",
+        {
+          "minItems": 1,
+        },
+      ],
+      "array-bracket-newline": [
+        "error",
+        {
+          "multiline": true,
+          "minItems": 1,
+        },
+      ],
+      "newline-per-chained-call": [
+        "error",
+        {
+          "ignoreChainWithDepth": 1,
+        },
+      ],
+    }
   },
 ])

@@ -9,7 +9,9 @@ export const DailyReportContainer = observer(() => {
 
   useEffect(() => {
     loadReport()
-  }, [dailyReportState.date])
+  }, [
+    dailyReportState.date
+  ])
 
   return <DailyReportContent onSubmit={createReportAsync} />
 
@@ -20,7 +22,7 @@ export const DailyReportContainer = observer(() => {
 
     dailyReportState.setSaved()
   }
-  
+
   async function loadReport() {
     const report = await dailyReportsRepository.getByDate({
       date: dailyReportState.date,
@@ -30,12 +32,12 @@ export const DailyReportContainer = observer(() => {
       dailyReportState.initializeReport({
         loadedReport: report,
       })
-      
+
       dailyReportState.setSaved()
 
       return
     }
 
-      dailyReportState.resetReport()
+    dailyReportState.resetReport()
   }
 })

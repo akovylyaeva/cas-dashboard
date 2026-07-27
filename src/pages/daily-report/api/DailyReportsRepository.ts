@@ -32,7 +32,7 @@ export class DailyReportsRepository {
     const {
       error,
     } = await supabase
-      .from("daily_reports")
+      .from('daily_reports')
       .upsert(
         {
           id: report.id || undefined,
@@ -56,7 +56,7 @@ export class DailyReportsRepository {
           comment: report.comment,
         },
         {
-          onConflict: "date",
+          onConflict: 'date',
         },
       )
 

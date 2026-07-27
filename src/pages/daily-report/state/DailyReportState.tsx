@@ -2,8 +2,8 @@ import { makeAutoObservable } from 'mobx'
 import type { DailyReportType } from '../../../types'
 
 const EMPTY_REPORT: DailyReportType = {
-  id: ``,
-  date: ``,
+  id: '',
+  date: '',
   cycleDay: null,
   weight: null,
   calories: null,
@@ -13,12 +13,12 @@ const EMPTY_REPORT: DailyReportType = {
   steps: null,
   sleepStart: null,
   sleepEnd: null,
-  comment: ``,
+  comment: '',
 }
 
 export class DailyReportState {
   private _report: DailyReportType = {
-    ...EMPTY_REPORT, 
+    ...EMPTY_REPORT,
   }
 
   private _isSaved = false
@@ -26,7 +26,9 @@ export class DailyReportState {
   constructor() {
     makeAutoObservable(this)
 
-    this._report.date = new Date().toISOString().split('T')[0]
+    this._report.date = new Date()
+      .toISOString()
+      .split('T')[0]
   }
 
   initializeReport({
@@ -57,7 +59,6 @@ export class DailyReportState {
     this._report.date = date
     this.setUnsaved()
   }
-
 
   setCycleDay({
     cycleDay,
@@ -127,7 +128,7 @@ export class DailyReportState {
   }: {
     sleepStart: string,
   }) {
-    this._report.sleepStart = sleepStart === `` ? null : sleepStart
+    this._report.sleepStart = sleepStart === '' ? null : sleepStart
     this.setUnsaved()
   }
 
@@ -136,7 +137,7 @@ export class DailyReportState {
   }: {
     sleepEnd: string,
   }) {
-    this._report.sleepEnd = sleepEnd === `` ? null : sleepEnd
+    this._report.sleepEnd = sleepEnd === '' ? null : sleepEnd
     this.setUnsaved()
   }
 
