@@ -21,7 +21,23 @@ export class DailyReportsRepository {
       throw error
     }
 
-    return data as DailyReportType | null
+    if (!data) {
+      return null
+    }
+
+    const {
+      cycle_day,
+      sleep_start,
+      sleep_end,
+      ...report
+    } = data
+
+    return {
+      ...report,
+      cycleDay: cycle_day,
+      sleepStart: sleep_start,
+      sleepEnd: sleep_end,
+    } as DailyReportType
   }
 
   async create({

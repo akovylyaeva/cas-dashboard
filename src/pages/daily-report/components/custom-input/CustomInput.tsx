@@ -7,7 +7,7 @@ export const CustomInput = ({
   onChange,
 }: {
   label: string,
-  type: 'number' | 'time' | 'date',
+  type: 'number' | 'time' | 'date' | 'string',
   value: string | number,
   onChange: (event: any) => unknown,
 }) => {
