@@ -59,8 +59,9 @@ export const DailyReportContent = observer(({
         type='number'
         value={weight ?? ''}
         onChange={(event: any) =>
-          dailyReportState.setWeight({
-            weight: event.target.value,
+          dailyReportState.setNumberField({
+            field: 'weight',
+            value: event.target.value,
           })
         }
         isError={isWeightError}
@@ -71,8 +72,9 @@ export const DailyReportContent = observer(({
         type='number'
         value={cycleDay ?? ''}
         onChange={(event: any) =>
-          dailyReportState.setCycleDay({
-            cycleDay: event.target.value,
+          dailyReportState.setNumberField({
+            field: 'cycleDay',
+            value: event.target.value,
           })
         }
         isError={isCycleDayError}
@@ -84,8 +86,9 @@ export const DailyReportContent = observer(({
           type='number'
           value={calories ?? ''}
           onChange={(event: any) =>
-            dailyReportState.setCalories({
-              calories: event.target.value,
+            dailyReportState.setNumberField({
+              field: 'calories',
+              value: event.target.value,
             })
           }
           isError={isCaloriesError}
@@ -96,8 +99,9 @@ export const DailyReportContent = observer(({
           type='number'
           value={protein ?? ''}
           onChange={(event: any) =>
-            dailyReportState.setProtein({
-              protein: event.target.value,
+            dailyReportState.setNumberField({
+              field: 'protein',
+              value: event.target.value,
             })
           }
           isError={isProteinError}
@@ -108,8 +112,9 @@ export const DailyReportContent = observer(({
           type='number'
           value={fat ?? ''}
           onChange={(event: any) =>
-            dailyReportState.setFat({
-              fat: event.target.value,
+            dailyReportState.setNumberField({
+              field: 'fat',
+              value: event.target.value,
             })
           }
           isError={isFatError}
@@ -120,8 +125,9 @@ export const DailyReportContent = observer(({
           type='number'
           value={carbs ?? ''}
           onChange={(event: any) =>
-            dailyReportState.setCarbs({
-              carbs: event.target.value,
+            dailyReportState.setNumberField({
+              field: 'carbs',
+              value: event.target.value,
             })
           }
           isError={isCarbsError}
@@ -133,8 +139,9 @@ export const DailyReportContent = observer(({
         type='number'
         value={steps ?? ''}
         onChange={(event: any) =>
-          dailyReportState.setSteps({
-            steps: event.target.value,
+          dailyReportState.setNumberField({
+            field: 'steps',
+            value: event.target.value,
           })
         }
         isError={isStepsError}
@@ -146,8 +153,9 @@ export const DailyReportContent = observer(({
           type='time'
           value={sleepStart ?? ''}
           onChange={(event: any) =>
-            dailyReportState.setSleepStart({
-              sleepStart: event.target.value,
+            dailyReportState.setTimeField({
+              field: 'sleepStart',
+              value: event.target.value,
             })
           }
           isError={isSleepError}
@@ -158,8 +166,9 @@ export const DailyReportContent = observer(({
           type='time'
           value={sleepEnd ?? ''}
           onChange={(event: any) =>
-            dailyReportState.setSleepEnd({
-              sleepEnd: event.target.value,
+            dailyReportState.setTimeField({
+              field: 'sleepEnd',
+              value: event.target.value,
             })
           }
           isError={isSleepError}

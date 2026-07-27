@@ -62,31 +62,32 @@ export class DailyReportState {
   }
 
   get isWeightValid() {
-    return this._report.weight === null || this._report.weight > 0
+    return this.isPositiveOrEmpty(this._report.weight)
   }
 
   get isCycleDayValid() {
-    return this._report.cycleDay === null || this._report.cycleDay > 0
+    return this.isPositiveOrEmpty(this._report.cycleDay)
+
   }
 
   get isCaloriesValid() {
-    return this._report.calories === null || this._report.calories > 0
+    return this.isPositiveOrEmpty(this._report.calories)
   }
 
   get isProteinValid() {
-    return this._report.protein === null || this._report.protein > 0
+    return this.isPositiveOrEmpty(this._report.protein)
   }
 
   get isFatValid() {
-    return this._report.fat === null || this._report.fat > 0
+    return this.isPositiveOrEmpty(this._report.fat)
   }
 
   get isCarbsValid() {
-    return this._report.carbs === null || this._report.carbs > 0
+    return this.isPositiveOrEmpty(this._report.carbs)
   }
 
   get isStepsValid() {
-    return this._report.steps === null || this._report.steps > 0
+    return this.isPositiveOrEmpty(this._report.steps)
   }
 
   get isSleepValid() {
@@ -129,84 +130,34 @@ export class DailyReportState {
     this.resetIsSaved()
   }
 
-  setWeight({
-    weight,
+  setNumberField({
+    field,
+    value,
   }: {
-    weight: string,
+    field: keyof Pick<
+      DailyReportType,
+      'weight' |
+      'cycleDay' |
+      'calories' |
+      'protein' |
+      'fat' |
+      'carbs' |
+      'steps'
+    >,
+    value: string,
   }) {
-    this._report.weight = this.parseNumber(weight)
+    this._report[field] = value === '' ? null : Number(value)
     this.resetIsSaved()
   }
 
-  setCycleDay({
-    cycleDay,
+  setTimeField({
+    field,
+    value,
   }: {
-    cycleDay: string,
+    field: keyof Pick<DailyReportType, 'sleepStart' | 'sleepEnd'>,
+    value: string,
   }) {
-    this._report.cycleDay = this.parseNumber(cycleDay)
-    this.resetIsSaved()
-  }
-
-  setCalories({
-    calories,
-  }: {
-    calories: string,
-  }) {
-    this._report.calories = this.parseNumber(calories)
-    this.resetIsSaved()
-  }
-
-  setProtein({
-    protein,
-  }: {
-    protein: string,
-  }) {
-    this._report.protein = this.parseNumber(protein)
-    this.resetIsSaved()
-  }
-
-  setFat({
-    fat,
-  }: {
-    fat: string,
-  }) {
-    this._report.fat = this.parseNumber(fat)
-    this.resetIsSaved()
-  }
-
-  setCarbs({
-    carbs,
-  }: {
-    carbs: string,
-  }) {
-    this._report.carbs = this.parseNumber(carbs)
-    this.resetIsSaved()
-  }
-
-  setSteps({
-    steps,
-  }: {
-    steps: string,
-  }) {
-    this._report.steps = this.parseNumber(steps)
-    this.resetIsSaved()
-  }
-
-  setSleepStart({
-    sleepStart,
-  }: {
-    sleepStart: string,
-  }) {
-    this._report.sleepStart = sleepStart === '' ? null : sleepStart
-    this.resetIsSaved()
-  }
-
-  setSleepEnd({
-    sleepEnd,
-  }: {
-    sleepEnd: string,
-  }) {
-    this._report.sleepEnd = sleepEnd === '' ? null : sleepEnd
+    this._report[field] = value === '' ? null : value
     this.resetIsSaved()
   }
 
@@ -250,7 +201,7 @@ export class DailyReportState {
     this._isSaved = false
   }
 
-  private parseNumber(value: string) {
-    return value === '' ? null : Number(value)
+  private isPositiveOrEmpty(value: number | null) {
+    return value === null || value > 0
   }
 }
