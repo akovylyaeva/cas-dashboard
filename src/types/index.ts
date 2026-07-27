@@ -2,9 +2,9 @@ export type DailyReportType = {
   id: string,
   date: string,
 
-  cycleDay: number | null,
-
   weight: number | null,
+
+  cycleDay: number | null,
 
   calories: number | null,
   protein: number | null,

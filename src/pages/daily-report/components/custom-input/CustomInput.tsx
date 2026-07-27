@@ -1,15 +1,19 @@
 import './CustomInput.scss'
 
+import clsx from 'clsx'
+
 export const CustomInput = ({
   label,
   type,
   value,
   onChange,
+  isError = false,
 }: {
   label: string,
   type: 'number' | 'time' | 'date' | 'string',
   value: string | number,
   onChange: (event: any) => unknown,
+  isError?: boolean,
 }) => {
   return (
     <div className="custom-input">
@@ -18,7 +22,9 @@ export const CustomInput = ({
       </span>
 
       <input
-        className="custom-input__textarea"
+        className={clsx('custom-input__textarea', {
+          'error': isError,
+        })}
         type={type}
         value={value}
         onChange={onChange}

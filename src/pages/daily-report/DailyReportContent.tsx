@@ -14,8 +14,8 @@ export const DailyReportContent = observer(({
 
   const {
     date,
-    cycleDay,
     weight,
+    cycleDay,
     calories,
     protein,
     fat,
@@ -25,6 +25,17 @@ export const DailyReportContent = observer(({
     sleepEnd,
     comment,
   } = dailyReportState.report
+
+  const {
+    isWeightError,
+    isCycleDayError,
+    isCaloriesError,
+    isProteinError,
+    isFatError,
+    isCarbsError,
+    isStepsError,
+    isSleepError,
+  } = dailyReportState.errors
 
   return (
     <div className='daily-report'>
@@ -52,6 +63,7 @@ export const DailyReportContent = observer(({
             weight: event.target.value,
           })
         }
+        isError={isWeightError}
       />
 
       <CustomInput
@@ -63,6 +75,7 @@ export const DailyReportContent = observer(({
             cycleDay: event.target.value,
           })
         }
+        isError={isCycleDayError}
       />
 
       <div className='daily-report__macros'>
@@ -75,6 +88,7 @@ export const DailyReportContent = observer(({
               calories: event.target.value,
             })
           }
+          isError={isCaloriesError}
         />
 
         <CustomInput
@@ -86,6 +100,7 @@ export const DailyReportContent = observer(({
               protein: event.target.value,
             })
           }
+          isError={isProteinError}
         />
 
         <CustomInput
@@ -97,6 +112,7 @@ export const DailyReportContent = observer(({
               fat: event.target.value,
             })
           }
+          isError={isFatError}
         />
 
         <CustomInput
@@ -108,6 +124,7 @@ export const DailyReportContent = observer(({
               carbs: event.target.value,
             })
           }
+          isError={isCarbsError}
         />
       </div>
 
@@ -120,6 +137,7 @@ export const DailyReportContent = observer(({
             steps: event.target.value,
           })
         }
+        isError={isStepsError}
       />
 
       <div className='daily-report__sleep-time'>
@@ -132,6 +150,7 @@ export const DailyReportContent = observer(({
               sleepStart: event.target.value,
             })
           }
+          isError={isSleepError}
         />
 
         <CustomInput
@@ -143,18 +162,15 @@ export const DailyReportContent = observer(({
               sleepEnd: event.target.value,
             })
           }
+          isError={isSleepError}
         />
       </div>
 
-      <label htmlFor='comment'>
-        Comment
-      </label>
-
-      <input
-        id='comment'
+      <CustomInput
+        label='Comment'
         type='string'
         value={comment}
-        onChange={(event) =>
+        onChange={(event: any) =>
           dailyReportState.setComment({
             comment: event.target.value,
           })

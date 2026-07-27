@@ -16,11 +16,25 @@ export const DailyReportContainer = observer(() => {
   return <DailyReportContent onSubmit={createReportAsync} />
 
   async function createReportAsync() {
-    await dailyReportsRepository.create({
-      report: dailyReportState.report,
-    })
+    dailyReportState.setIsSaving()
+    dailyReportState.setIsTriedToSubmit()
 
-    dailyReportState.setSaved()
+    if (!dailyReportState.isValid) {
+      dailyReportState.resetIsSaving()
+      return
+    }
+
+    try {
+      await dailyReportsRepository.create({
+        report: dailyReportState.report,
+      })
+
+      dailyReportState.setIsSaved()
+    }
+    finally {
+      dailyReportState.resetIsSaving()
+      dailyReportState.resetIsTriedToSubmit()
+    }
   }
 
   async function loadReport() {
@@ -33,7 +47,7 @@ export const DailyReportContainer = observer(() => {
         loadedReport: report,
       })
 
-      dailyReportState.setSaved()
+      dailyReportState.setIsSaved()
 
       return
     }
