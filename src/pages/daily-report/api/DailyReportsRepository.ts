@@ -1,5 +1,5 @@
 import { supabase } from '../../../common/api/supabase'
-import type { DailyReportType } from '../../../types'
+import type { DailyReportType, WeightItemType } from '../../../types'
 
 export class DailyReportsRepository {
 
@@ -80,6 +80,30 @@ export class DailyReportsRepository {
       throw error
     }
   }
+
+  async getWeightHistory() {
+    const {
+      data,
+      error
+    } = await supabase
+      .from('daily_reports')
+      .select(`
+        id,
+        date,
+        weight
+      `)
+      .not('weight', 'is', null)
+      .order('date', {
+        ascending: false,
+      })
+
+    if (error) {
+      throw error
+    }
+
+    return data as Omit<WeightItemType, 'difference'>[]
+  }
+
 }
 
 export const dailyReportsRepository = new DailyReportsRepository()

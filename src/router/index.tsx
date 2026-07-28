@@ -2,7 +2,7 @@ import { createBrowserRouter } from 'react-router-dom'
 import { Layout } from '../layout/Layout'
 import { DailyReportPage } from '../pages/daily-report/DailyReportPage'
 import { Sleep } from '../pages/sleep/Sleep'
-import { Weight } from '../pages/weight/Weight'
+import { WeightPage } from '../pages/weight/WeightPage'
 
 export const router = createBrowserRouter([
   {
@@ -14,12 +14,12 @@ export const router = createBrowserRouter([
         element: <DailyReportPage />,
       },
       {
-        path: 'sleep',
-        element: <Sleep />,
+        path: 'weight',
+        element: <WeightPage />,
       },
       {
-        path: 'weight',
-        element: <Weight />,
+        path: 'sleep',
+        element: <Sleep />,
       },
     ],
   },

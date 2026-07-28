@@ -1,0 +1,15 @@
+.weight {
+  &__difference {
+    &--smaller {
+      color: #1ed400;
+    }
+
+    &--same {
+      color: #979797;
+    }
+
+    &--larger {
+      color: #da2228;
+    }
+  }
+}

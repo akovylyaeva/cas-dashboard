@@ -8,7 +8,7 @@ export const DailyReportContainer = observer(() => {
   const dailyReportState = useContext(DailyReportStateContext)
 
   useEffect(() => {
-    loadReport()
+    loadReportAsync()
   }, [
     dailyReportState.report.date
   ])
@@ -37,7 +37,7 @@ export const DailyReportContainer = observer(() => {
     }
   }
 
-  async function loadReport() {
+  async function loadReportAsync() {
     const report = await dailyReportsRepository.getByDate({
       date: dailyReportState.report.date,
     })

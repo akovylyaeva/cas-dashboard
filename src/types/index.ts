@@ -18,3 +18,11 @@ export type DailyReportType = {
 
   comment: string,
 }
+
+export type ReportHistoryItemType = Omit<DailyReportType, 'comment'>
+
+export type WeightItemType = Pick<DailyReportType, 'id' | 'date'> & {
+  weight: number
+  difference: number,
+}
+
