@@ -45,10 +45,6 @@ export class DailyReportState {
     return this._report
   }
 
-  get date() {
-    return this._report.date
-  }
-
   get isSaving() {
     return this._isSaving
   }
@@ -67,7 +63,6 @@ export class DailyReportState {
 
   get isCycleDayValid() {
     return this.isPositiveOrEmpty(this._report.cycleDay)
-
   }
 
   get isCaloriesValid() {
@@ -91,8 +86,8 @@ export class DailyReportState {
   }
 
   get isSleepValid() {
-    return (this._report.sleepStart && this._report.sleepEnd)
-      || (!this._report.sleepStart && !this._report.sleepEnd)
+    return (this._report.sleepStart === null && this._report.sleepEnd === null)
+      || (this._report.sleepStart !== null && this._report.sleepEnd !== null)
   }
 
   get isValid() {

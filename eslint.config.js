@@ -26,6 +26,7 @@ export default defineConfig([
       'no-console': 'error',
       'linebreak-style': ['error', 'unix'],
       '@typescript-eslint/no-explicit-any': 'off',
+      '@typescript-eslint/no-unused-expressions': 'off',
       'no-multiple-empty-lines': [
         'error',
         {
