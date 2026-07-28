@@ -1,4 +1,41 @@
 .weight-table {
+  overflow: hidden;
+  margin-top: 8px;
+  border: 1px solid gray;
+  border-radius: 4px;
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 100%;
+  background: white;
+
+  th,
+  td {
+    border-bottom: 1px solid lightgray;
+    padding: 16px;
+    text-align: left;
+  }
+
+  th:not(:last-child),
+  td:not(:last-child) {
+    border-right: 1px solid lightgray;
+  }
+
+  th {
+    font-weight: 500;
+  }
+
+  &__column-date {
+    width: 34%;
+  }
+
+  &__column-weight {
+    width: 33%;
+  }
+
+  &__column-difference {
+    width: 33%;
+  }
+
   &__difference-value {
     &--smaller {
       color: #1ed400;
@@ -11,5 +48,10 @@
     &--larger {
       color: #da2228;
     }
+  }
+
+  &__no-data {
+    text-align: center !important;
+    color: #979797;
   }
 }

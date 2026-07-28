@@ -71,6 +71,7 @@ export const WeightTable = observer(() => {
           ) : (
             <tr>
               <td
+                colSpan={3}
                 data-cy='weight-table-no-data'
                 className="weight-table__no-data"
               >
